@@ -1,0 +1,179 @@
+Unix is a computer Operating System which is capable of handling activities from multiple users at the same time. 
+The development of Unix started around 1969 at AT&T Bell Labs by Ken Thompson and Dennis Ritchie. 
+This tutorial gives a very good understanding on Unix.
+
+Login Unix
+When you first connect to a Unix system, you usually see a prompt such as the following −
+
+login:
+To log in
+Have your userid (user identification) and password ready. Contact your system administrator if you don't have these yet.
+
+Type your userid at the login prompt, then press ENTER. Your userid is case-sensitive, so be sure you type it exactly as your system administrator has instructed.
+
+Type your password at the password prompt, then press ENTER. Your password is also case-sensitive.
+
+If you provide the correct userid and password, then you will be allowed to enter into the system. Read the information and messages that comes up on the screen, which is as follows.
+
+login : amrood
+amrood's password:
+Last login: Sun Jun 14 09:32:32 2009 from 62.61.164.73
+$
+You will be provided with a command prompt (sometime called the $ prompt ) where you type all your commands. For example, to check calendar, you need to type the cal command as follows −
+
+$ cal
+     June 2009
+Su Mo Tu We Th Fr Sa
+    1  2  3  4  5  6
+ 7  8  9 10 11 12 13
+14 15 16 17 18 19 20
+21 22 23 24 25 26 27
+28 29 30
+
+$
+Change Password
+All Unix systems require passwords to help ensure that your files and data remain your own and that the system itself is secure from hackers and crackers. 
+Following are the steps to change your password −
+
+Step 1 − To start, type password at the command prompt as shown below.
+
+Step 2 − Enter your old password, the one you're currently using.
+
+Step 3 − Type in your new password. Always keep your password complex enough so that nobody can guess it. But make sure, you remember it.
+
+Step 4 − You must verify the password by typing it again.
+
+$ passwd
+Changing password for amrood
+(current) Unix password:******
+New UNIX password:*******
+Retype new UNIX password:*******
+passwd: all authentication tokens updated  successfully
+
+$
+Note − We have added asterisk (*) here just to show the location where you need to enter the current and new passwords otherwise at your system. 
+It does not show you any character when you type.
+
+Who Are You?
+While you're logged into the system, you might be willing to know : Who am I?
+
+The easiest way to find out "who you are" is to enter the whoami command −
+
+$ whoami
+ amrood
+
+$
+Try it on your system. This command lists the account name associated with the current login. You can try who am i command as well to get information about yourself.
+
+Who is Logged in?
+Sometime you might be interested to know who is logged in to the computer at the same time.
+
+There are three commands available to get you this information, based on how much you wish to know about the other users: users, who, and w.
+
+$ users
+ amrood bablu qadir
+
+$ who
+amrood ttyp0 Oct 8 14:10 (limbo)
+bablu  ttyp2 Oct 4 09:08 (calliope)
+qadir  ttyp4 Oct 8 12:09 (dent)
+
+$
+Try the w command on your system to check the output. This lists down information associated with the users logged in the system.
+
+Logging Out
+When you finish your session, you need to log out of the system. This is to ensure that nobody else accesses your files.
+
+To log out
+
+Just type the logout command at the command prompt, and the system will clean up everything and break the connection.
+
+System Shutdown
+The most consistent way to shut down a Unix system properly via the command line is to use one of the following commands −
+
+1) halt- Brings the system down immediately
+
+2) init 0- Powers off the system using predefined scripts to synchronize and clean up the system prior to shutting down
+
+3) init 6- Reboots the system by shutting it down completely and then restarting it
+
+4) poweroff- Shuts down the system by powering off
+
+5) reboot- Reboots the system
+
+6) shutdown- Shuts down the system
+
+You typically need to be the super user or root (the most privileged account on a Unix system) to shut down the system. 
+However, on some standalone or personally-owned Unix boxes, an administrative user and sometimes regular users can do so.
+
+Listing Files
+To list the files and directories stored in the current directory, use the following command −
+
+$ls
+Here is the sample output of the above command −
+
+$ls
+
+bin        hosts  lib     res.03
+ch07       hw1    pub     test_results
+ch07.bak   hw2    res.01  users
+docs       hw3    res.02  work
+The command ls supports the -l option which would help you to get more information about the listed files −
+
+$ls -l
+total 1962188
+
+drwxrwxr-x  2 amrood amrood      4096 Dec 25 09:59 uml
+-rw-rw-r--  1 amrood amrood      5341 Dec 25 08:38 uml.jpg
+drwxr-xr-x  2 amrood amrood      4096 Feb 15  2006 univ
+drwxr-xr-x  2 root   root        4096 Dec  9  2007 urlspedia
+-rw-r--r--  1 root   root      276480 Dec  9  2007 urlspedia.tar
+drwxr-xr-x  8 root   root        4096 Nov 25  2007 usr
+drwxr-xr-x  2    200    300      4096 Nov 25  2007 webthumb-1.01
+-rwxr-xr-x  1 root   root        3192 Nov 25  2007 webthumb.php
+-rw-rw-r--  1 amrood amrood     20480 Nov 25  2007 webthumb.tar
+-rw-rw-r--  1 amrood amrood      5654 Aug  9  2007 yourfile.mid
+-rw-rw-r--  1 amrood amrood    166255 Aug  9  2007 yourfile.swf
+drwxr-xr-x 11 amrood amrood      4096 May 29  2007 zlib-1.2.3
+$
+Here is the information about all the listed columns −
+
+First Column − Represents the file type and the permission given on the file. Below is the description of all type of files.
+
+Second Column − Represents the number of memory blocks taken by the file or directory.
+
+Third Column − Represents the owner of the file. This is the Unix user who created this file.
+
+Fourth Column − Represents the group of the owner. Every Unix user will have an associated group.
+
+Fifth Column − Represents the file size in bytes.
+
+Sixth Column − Represents the date and the time when this file was created or modified for the last time.
+
+Seventh Column − Represents the file or the directory name.
+
+In the ls -l listing example, every file line begins with a d, -, or l. These characters indicate the type of the file that's listed.
+
+1) -
+Regular file, such as an ASCII text file, binary executable, or hard link.
+
+2) b
+Block special file. Block input/output device file such as a physical hard drive.
+
+3) c
+Character special file. Raw input/output device file such as a physical hard drive.
+
+4) d
+Directory file that contains a listing of other files and directories.
+
+5) l
+Symbolic link file. Links on any regular file.
+
+6) p
+Named pipe. A mechanism for interprocess communications.
+
+7) s
+Socket used for interprocess communication.
+
+
+
